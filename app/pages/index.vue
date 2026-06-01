@@ -1,5 +1,9 @@
 <script setup lang="ts">
-    const { todos, addTodo, toggleTodo } = useTodos()
+import TodoList from '~/components/TodoList.vue'
+import NoteEditor from '~/components/NoteEditor.vue'
+import { useTodos } from '~/composables/useTodos'
+
+const { lists, addList, toggleTodo } = useTodos()
 </script>
 
 <template>
@@ -12,14 +16,16 @@
                 </section>
 
                 <section class="rounded-3xl bg-base-100/80 border border-base-200 p-6 shadow-sm">
-                    <TodoForm @add="addTodo" />
+
+                    <NoteEditor
+                        @addNote="(note)=>console.log(note)"/>
 
                     <ul class="mt-6 divide-y divide-base-200">
-                        <TodoItem
-                            v-for="todo in todos"
-                            :key="todo.id"
-                            :todo="todo"
-                            @toggle="toggleTodo"
+                        <TodoList
+                            v-for="list in lists"
+                            :key="list.id"
+                            :list="list"
+                            @toggle="toggleTodo(list.id, $event)"
                         />
                     </ul>
                 </section>
