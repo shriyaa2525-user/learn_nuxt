@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import daisyui from 'daisyui'
 
 export default <Config>{
   content: [
@@ -7,9 +6,8 @@ export default <Config>{
     './components/**/*.{vue,ts,js}',
     './pages/**/*.{vue,ts,js}',
   ],
-  plugins: [daisyui],
-  daisyui: {
-    themes: ['cupcake', 'winter'],
-    logs: false,
+  theme: {
+    extend: {},
   },
+  plugins: [],
 }
