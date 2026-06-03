@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import NoteEditor from '~/components/NoteEditor.vue'
 import NoteCard from '~/components/NoteCard.vue';
+import { useNotes } from '~/composables/useNotes'
+
 const { notes, addNote } = useNotes()
 </script>
 
